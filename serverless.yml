@@ -1,0 +1,30 @@
+service: nodeless
+
+custom:
+  serverless-offline:
+    useChildProcesses: true
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs12.x
+  region: us-east-1
+  timeout: 30
+  memorySize: 512
+  package:
+    excludeDevDependencies: true
+    exclude:
+      - .git/**
+      - .vscode/**
+
+functions:
+  app:
+    handler: handler.run
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+
+plugins:
+  - serverless-offline 
