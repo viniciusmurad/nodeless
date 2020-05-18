@@ -17,4 +17,8 @@ app.post(
   require('./use_cases/authentication/change_password_use_case')
 );
 
+app.get('/teste', function(req, res) {
+  return res.status(200).send({message: 'Hello 2'});
+})
+
 module.exports = app;
