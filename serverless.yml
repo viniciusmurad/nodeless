@@ -19,12 +19,10 @@ provider:
 
 functions:
   app:
-    handler: handler.run
+    handler: src/handlers/web.run
     events:
-      - http:
-          path: /{proxy+}
-          method: ANY
-          cors: true
+      - http: ANY /
+      - http: 'ANY {proxy+}'
 
 plugins:
-  - serverless-offline 
+  - serverless-offline
