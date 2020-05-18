@@ -6,9 +6,9 @@ custom:
 
 provider:
   name: aws
-  stage: ${opt:stage, 'dev'}
+  stage: ${env:STAGE}
   runtime: nodejs12.x
-  region: us-east-1
+  region: ${env:REGION}
   timeout: 30
   memorySize: 512
   package:
@@ -26,3 +26,4 @@ functions:
 
 plugins:
   - serverless-offline
+  - serverless-dotenv-plugin

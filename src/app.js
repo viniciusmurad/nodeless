@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cors = require('cors');
+const settings = require('./config/settings')
 
 const app = express();
 
@@ -18,7 +19,12 @@ app.post(
 );
 
 app.get('/teste', function(req, res) {
-  return res.status(200).send({message: 'Hello 2'});
+  const teste = {
+    a: settings.COGNITO,
+    b: settings.REGION,
+    c: settings.STAGE,
+  }
+  return res.status(200).send({message: teste});
 })
 
 module.exports = app;
