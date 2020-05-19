@@ -23,6 +23,7 @@ app.get('/teste', function(req, res) {
     a: settings.COGNITO,
     b: settings.REGION,
     c: settings.STAGE,
+    d: 'Teste'
   }
   return res.status(200).send({message: teste});
 })
