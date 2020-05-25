@@ -1,9 +1,9 @@
-name: DEV CI/CD
+name: PREPROD CI/CD
 
 on:
   push:
     branches:
-      - dev
+      - preprod
 
 jobs:
   primary:

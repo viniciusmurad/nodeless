@@ -18,14 +18,9 @@ app.post(
   require('./use_cases/authentication/change_password_use_case')
 );
 
-app.get('/teste', function(req, res) {
-  const teste = {
-    a: settings.COGNITO,
-    b: settings.REGION,
-    c: settings.STAGE,
-    d: 'PROD'
-  }
-  return res.status(200).send({message: teste});
+app.get('/stage', (req, res) => {
+  const stage = settings.STAGE;
+  return res.status(200).send({message: stage});
 })
 
 module.exports = app;
