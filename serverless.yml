@@ -1,4 +1,4 @@
-service: reachout
+service: nodeless
 
 custom:
   serverless-offline:
